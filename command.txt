@@ -1,0 +1,169 @@
+# KUBERNETES (K8S) COMMANDS
+
+1. BASIC COMMANDS
+
+---
+
+kubectl version
+kubectl cluster-info
+kubectl get nodes
+kubectl get namespaces
+kubectl config view
+kubectl config current-context
+kubectl help
+
+2. POD COMMANDS
+
+---
+
+kubectl get pods
+kubectl get pods -A
+kubectl get pods -o wide
+kubectl describe pod POD_NAME
+kubectl delete pod POD_NAME
+kubectl logs POD_NAME
+kubectl exec -it POD_NAME -- sh
+kubectl get pods --watch
+
+3. DEPLOYMENT COMMANDS
+
+---
+
+kubectl get deployments
+kubectl create deployment nginx --image=nginx
+kubectl describe deployment nginx
+kubectl scale deployment nginx --replicas=3
+kubectl rollout status deployment/nginx
+kubectl rollout history deployment/nginx
+kubectl rollout undo deployment/nginx
+kubectl delete deployment nginx
+
+4. SERVICE COMMANDS
+
+---
+
+kubectl get services
+kubectl describe service SERVICE_NAME
+kubectl expose deployment nginx --port=80 --type=NodePort
+kubectl expose deployment nginx --port=80 --type=ClusterIP
+kubectl delete service SERVICE_NAME
+
+5. NAMESPACE COMMANDS
+
+---
+
+kubectl get namespaces
+kubectl create namespace dev
+kubectl describe namespace dev
+kubectl delete namespace dev
+kubectl get pods -n dev
+kubectl get all -n dev
+
+6. CONFIGMAP COMMANDS
+
+---
+
+kubectl get configmaps
+kubectl create configmap app-config --from-literal=APP_ENV=dev
+kubectl describe configmap app-config
+kubectl delete configmap app-config
+
+7. SECRET COMMANDS
+
+---
+
+kubectl get secrets
+kubectl create secret generic db-secret --from-literal=password=admin123
+kubectl describe secret db-secret
+kubectl delete secret db-secret
+
+8. NODE COMMANDS
+
+---
+
+kubectl get nodes
+kubectl describe node NODE_NAME
+kubectl cordon NODE_NAME
+kubectl uncordon NODE_NAME
+kubectl drain NODE_NAME
+kubectl top nodes
+
+9. YAML FILE COMMANDS
+
+---
+
+kubectl apply -f pod.yaml
+kubectl create -f pod.yaml
+kubectl delete -f pod.yaml
+kubectl get -f pod.yaml
+kubectl diff -f pod.yaml
+kubectl replace -f pod.yaml
+
+10. LOGS AND TROUBLESHOOTING
+
+---
+
+kubectl logs POD_NAME
+kubectl logs POD_NAME --previous
+kubectl get events
+kubectl top pods
+kubectl describe pod POD_NAME
+kubectl get pods -o wide
+kubectl exec -it POD_NAME -- sh
+
+11. LABEL COMMANDS
+
+---
+
+kubectl get pods --show-labels
+kubectl label pod POD_NAME app=nginx
+kubectl get pods -l app=nginx
+kubectl label pod POD_NAME app-
+
+12. ROLLOUT COMMANDS
+
+---
+
+kubectl rollout status deployment/nginx
+kubectl rollout history deployment/nginx
+kubectl rollout undo deployment/nginx
+kubectl rollout restart deployment/nginx
+
+13. SCALING COMMANDS
+
+---
+
+kubectl scale deployment nginx --replicas=3
+kubectl scale deployment nginx --replicas=1
+kubectl get deployments
+
+14. RESOURCE COMMANDS
+
+---
+
+kubectl get all
+kubectl get all -A
+kubectl describe RESOURCE RESOURCE_NAME
+kubectl delete RESOURCE RESOURCE_NAME
+
+15. CLEANUP COMMANDS
+
+---
+
+kubectl delete pod POD_NAME
+kubectl delete deployment DEPLOYMENT_NAME
+kubectl delete service SERVICE_NAME
+kubectl delete namespace NAMESPACE_NAME
+kubectl delete -f pod.yaml
+
+## IMPORTANT:
+
+POD_NAME = Replace with actual Pod name.
+NODE_NAME = Replace with actual Node name.
+SERVICE_NAME = Replace with actual Service name.
+
+Always check resources before deleting them.
+
+Author: Yash Pawar
+GitHub: CodewithYash77
+Cloud & DevOps | AWS | Linux | Docker | Kubernetes
